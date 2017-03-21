@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8115434C1E813A9600CF35E0 /* ArticleConentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8115434B1E813A9600CF35E0 /* ArticleConentViewController.swift */; };
 		B244E0A81E80076A000C6AEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244E0A71E80076A000C6AEF /* AppDelegate.swift */; };
 		B244E0AD1E80076A000C6AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B244E0AB1E80076A000C6AEF /* Main.storyboard */; };
 		B244E0AF1E80076A000C6AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B244E0AE1E80076A000C6AEF /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8115434B1E813A9600CF35E0 /* ArticleConentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleConentViewController.swift; sourceTree = "<group>"; };
 		B244E0A41E80076A000C6AEF /* MyNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B244E0A71E80076A000C6AEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B244E0AC1E80076A000C6AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				B244E0AE1E80076A000C6AEF /* Assets.xcassets */,
 				B244E0B01E80076A000C6AEF /* LaunchScreen.storyboard */,
 				B244E0B31E80076A000C6AEF /* Info.plist */,
+				8115434B1E813A9600CF35E0 /* ArticleConentViewController.swift */,
 			);
 			path = MyNews;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				B244E0BA1E800848000C6AEF /* ArticleListTableViewController.swift in Sources */,
 				B244E0A81E80076A000C6AEF /* AppDelegate.swift in Sources */,
+				8115434C1E813A9600CF35E0 /* ArticleConentViewController.swift in Sources */,
 				B244E0BC1E803119000C6AEF /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

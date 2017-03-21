@@ -13,11 +13,19 @@ class ArticleListTableViewController: UITableViewController {
     
     let dateFormatter = DateFormatter()
     var Articles = [Article]()
-    {
+        {
         didSet{
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showNewsContent" {
+            print("showNewsContent")
+            let contentVC = segue.destination as! ArticleConentViewController
+            contentVC.article = Articles[0]
         }
     }
     
