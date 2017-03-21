@@ -9,14 +9,24 @@
 import UIKit
 
 class Article {
-    let heading: String
-    let content: String
-    let category: String
-    let imageURL: String
-    let publishDate: String
-    let url: String
+    let heading: String?
+    let content: String?
     
-    init(){
+    let category: String?
+    let imageURL: URL?
+    let publishedDate: Date
+    let url: URL!
+    
+    init(data: [String: Any]){
+        heading = data["heading"] as? String
+        content = data["content"] as? String
+        category = data["category"] as? String
         
+        imageURL = URL(string: "\(data["imageUrl"])")
+        
+        let date = data["publishedDate"] as! Double
+        publishedDate = Date(timeIntervalSince1970: date/1000)
+        
+        url = URL(string: data["url"] as! String)
     }
 }
