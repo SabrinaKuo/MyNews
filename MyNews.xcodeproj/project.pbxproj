@@ -13,7 +13,6 @@
 		B244E0B21E80076A000C6AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B244E0B01E80076A000C6AEF /* LaunchScreen.storyboard */; };
 		B244E0BA1E800848000C6AEF /* ArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244E0B91E800848000C6AEF /* ArticleListTableViewController.swift */; };
 		B244E0BC1E803119000C6AEF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244E0BB1E803119000C6AEF /* Article.swift */; };
-		B244E0BE1E80515B000C6AEF /* ArticleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244E0BD1E80515B000C6AEF /* ArticleDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		B244E0B31E80076A000C6AEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B244E0B91E800848000C6AEF /* ArticleListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleListTableViewController.swift; sourceTree = "<group>"; };
 		B244E0BB1E803119000C6AEF /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		B244E0BD1E80515B000C6AEF /* ArticleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +58,6 @@
 			children = (
 				B244E0A71E80076A000C6AEF /* AppDelegate.swift */,
 				B244E0B91E800848000C6AEF /* ArticleListTableViewController.swift */,
-				B244E0BD1E80515B000C6AEF /* ArticleDataSource.swift */,
 				B244E0BB1E803119000C6AEF /* Article.swift */,
 				B244E0AB1E80076A000C6AEF /* Main.storyboard */,
 				B244E0AE1E80076A000C6AEF /* Assets.xcassets */,
@@ -144,7 +141,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B244E0BA1E800848000C6AEF /* ArticleListTableViewController.swift in Sources */,
-				B244E0BE1E80515B000C6AEF /* ArticleDataSource.swift in Sources */,
 				B244E0A81E80076A000C6AEF /* AppDelegate.swift in Sources */,
 				B244E0BC1E803119000C6AEF /* Article.swift in Sources */,
 			);
@@ -310,6 +306,7 @@
 				B244E0B81E80076A000C6AEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

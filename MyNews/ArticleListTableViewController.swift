@@ -21,9 +21,8 @@ class ArticleListTableViewController: UITableViewController {
         }
     }
     
-    
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         displayArticle()
     }
     
