@@ -12,6 +12,8 @@ let apiURL = "https://hpd-iosdev.firebaseio.com/news/latest.json"
 class ArticleListTableViewController: UITableViewController {
     
     let dateFormatter = DateFormatter()
+    var selectArticle: Article!
+    
     var Articles = [Article]()
         {
         didSet{
@@ -25,7 +27,7 @@ class ArticleListTableViewController: UITableViewController {
         if segue.identifier == "showNewsContent" {
             print("showNewsContent")
             let contentVC = segue.destination as! ArticleConentViewController
-            contentVC.article = Articles[0]
+            contentVC.article = selectArticle
         }
     }
     
@@ -67,17 +69,26 @@ class ArticleListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath)
-        
-        
         let article = self.Articles[indexPath.row]
+        
         cell.textLabel?.text = article.heading
+        cell.accessoryType = .disclosureIndicator
         
         let publishedDate = article.publishedDate
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        cell.detailTextLabel?.text = dateFormatter.string(from: publishedDate)
+        cell.detailTextLabel?.text = dateFormatter.string(from: publishedDate!)
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        
+        print("will select Cell \(indexPath.row)")
+        selectArticle = self.Articles[indexPath.row]
+        
+        return indexPath
     }
     
 }

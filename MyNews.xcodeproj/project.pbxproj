@@ -60,12 +60,12 @@
 			children = (
 				B244E0A71E80076A000C6AEF /* AppDelegate.swift */,
 				B244E0B91E800848000C6AEF /* ArticleListTableViewController.swift */,
+				8115434B1E813A9600CF35E0 /* ArticleConentViewController.swift */,
 				B244E0BB1E803119000C6AEF /* Article.swift */,
 				B244E0AB1E80076A000C6AEF /* Main.storyboard */,
 				B244E0AE1E80076A000C6AEF /* Assets.xcassets */,
 				B244E0B01E80076A000C6AEF /* LaunchScreen.storyboard */,
 				B244E0B31E80076A000C6AEF /* Info.plist */,
-				8115434B1E813A9600CF35E0 /* ArticleConentViewController.swift */,
 			);
 			path = MyNews;
 			sourceTree = "<group>";

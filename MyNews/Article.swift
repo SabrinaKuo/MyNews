@@ -14,7 +14,7 @@ class Article {
     
     let category: String?
     let imageURL: URL?
-    let publishedDate: Date
+    let publishedDate: Date!
     let url: URL!
     
     init(data: [String: Any]){
@@ -22,7 +22,7 @@ class Article {
         content = data["content"] as? String
         category = data["category"] as? String
         
-        imageURL = URL(string: "\(data["imageUrl"])")
+        imageURL = URL(string: data["imageUrl"] as! String)
         
         let date = data["publishedDate"] as! Double
         publishedDate = Date(timeIntervalSince1970: date/1000)
