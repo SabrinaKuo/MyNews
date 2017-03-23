@@ -9,18 +9,27 @@
 import UIKit
 
 class ArticleConentViewController: UIViewController {
+    
     var article: Article!
+    let dateFormatter = DateFormatter()
     
     @IBOutlet weak var newsImage: UIImageView!
+    @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var publishDateLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        downNewImage()
+        headingLabel.text = article.heading
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        publishDateLabel.text = dateFormatter.string(from: article.publishedDate)
+        contentLabel.text = article.content
+        
+        downloadImage()
     }
     
-    func downNewImage(){
-        
+    func downloadImage(){
         let image = UIImage(data: NSData(contentsOf: article.imageURL!)as! Data)
         self.newsImage.image = image
         print("downimage finish")

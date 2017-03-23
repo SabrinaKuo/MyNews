@@ -8,7 +8,7 @@
 
 import UIKit
 
-let apiURL = "https://hpd-iosdev.firebaseio.com/news/latest.json"
+
 class ArticleListTableViewController: UITableViewController {
     
     let dateFormatter = DateFormatter()
@@ -33,35 +33,18 @@ class ArticleListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayArticle()
+        
+        downloadLatestArticles()
+        //displayArticle()
     }
     
-    func displayArticle(){
-        let session = URLSession.shared
-        let url = URL(string: apiURL)
-        let task = session.dataTask(with: url!) { data, response, error in
+    func downloadLatestArticles(){
+        Article.downloadLatestArticles { articles, error in
             
             if let error = error {
-                print("download API error \(error)")
                 return
             }
-            let data = data!
-            if let jsonObject = try?JSONSerialization.jsonObject(with: data, options: .mutableContainers), let articles = jsonObject as? [[String: Any]] {
-                
-                if articles.count == 0 {
-                    return
-                }
-                
-                for article in articles {
-                    let data = Article.init(data: article)
-                    self.Articles.append(data)
-                }
-            }
-            
-            print("Download Finish!!")
         }
-        
-        task.resume()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
