@@ -35,16 +35,18 @@ class ArticleListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         downloadLatestArticles()
-        //displayArticle()
+    
     }
     
     func downloadLatestArticles(){
+        
         Article.downloadLatestArticles { articles, error in
-            
-            if let error = error {
+            if error != nil {
                 return
             }
+            self.Articles = articles!
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

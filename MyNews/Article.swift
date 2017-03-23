@@ -21,7 +21,15 @@ class Article {
         heading = rawData["heading"] as? String
         content = rawData["content"] as? String
         category = rawData["category"] as? String
-        imageURL = URL(string: rawData["imageUrl"] as! String)
+        
+        let imageString = rawData["imageUrl"] as? String
+        if imageString != nil {
+            print("imageUrl : \(imageString)")
+            imageURL = URL(string: imageString!)
+        } else {
+            imageURL = nil
+        }
+        
         let date = rawData["publishedDate"] as! Double
         publishedDate = Date(timeIntervalSince1970: date/1000)
         url = URL(string: rawData["url"] as! String)
@@ -46,8 +54,14 @@ class Article {
                     return
                 }
                 
-                let newArticle = articles.map{Article(rawData: $0)}
-                compeleteHandler(newArticle, nil)
+                var newArticles = [Article]()
+                for article in articles {
+                    let data = Article(rawData: article)
+                    newArticles.append(data)
+                }
+                //let newArticle = articles.map { Article.init(rawData: $0) }
+                //let newArticle = articles.map{Article(rawData: $0)}
+                compeleteHandler(newArticles, nil)
             }
         }
         task.resume()

@@ -30,9 +30,18 @@ class ArticleConentViewController: UIViewController {
     }
     
     func downloadImage(){
-        let image = UIImage(data: NSData(contentsOf: article.imageURL!)as! Data)
-        self.newsImage.image = image
-        print("downimage finish")
+        
+        let imageUrl = article.imageURL!
+        let session = URLSession.shared
+        let task = session.dataTask(with: imageUrl) { data, response, error in
+            
+            if let image = UIImage(data: data!){
+                DispatchQueue.main.async{
+                    self.newsImage.image = image
+                }
+            }
+        }
+        task.resume()
     }
 
 }
