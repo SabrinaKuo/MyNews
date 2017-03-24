@@ -26,8 +26,11 @@ class ArticleListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showNewsContent" {
             print("showNewsContent")
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: cell)
+            
             let contentVC = segue.destination as! ArticleConentViewController
-            contentVC.article = selectArticle
+            contentVC.article = Articles[(indexPath?.row)!]
         }
     }
     
@@ -35,7 +38,12 @@ class ArticleListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         downloadLatestArticles()
+    }
     
+    @IBAction func pullRefreshArticles(_ sender: Any) {
+        print("Refresh Articles")
+        
+        downloadLatestArticles()
     }
     
     func downloadLatestArticles(){
@@ -44,6 +52,8 @@ class ArticleListTableViewController: UITableViewController {
             if error != nil {
                 return
             }
+            
+            self.refreshControl?.endRefreshing()
             self.Articles = articles!
         }
         
@@ -67,13 +77,7 @@ class ArticleListTableViewController: UITableViewController {
         
         return cell
     }
+
     
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        
-        print("will select Cell \(indexPath.row)")
-        selectArticle = self.Articles[indexPath.row]
-        
-        return indexPath
-    }
     
 }

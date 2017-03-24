@@ -24,7 +24,6 @@ class Article {
         
         let imageString = rawData["imageUrl"] as? String
         if imageString != nil {
-            print("imageUrl : \(imageString)")
             imageURL = URL(string: imageString!)
         } else {
             imageURL = nil
@@ -54,13 +53,7 @@ class Article {
                     return
                 }
                 
-                var newArticles = [Article]()
-                for article in articles {
-                    let data = Article(rawData: article)
-                    newArticles.append(data)
-                }
-                //let newArticle = articles.map { Article.init(rawData: $0) }
-                //let newArticle = articles.map{Article(rawData: $0)}
+                let newArticles = articles.map{Article(rawData: $0)}
                 compeleteHandler(newArticles, nil)
             }
         }
