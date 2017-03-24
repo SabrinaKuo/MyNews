@@ -31,17 +31,21 @@ class ArticleConentViewController: UIViewController {
     
     func downloadImage(){
         
-        let imageUrl = article.imageURL!
-        let session = URLSession.shared
-        let task = session.dataTask(with: imageUrl) { data, response, error in
-            
-            if let image = UIImage(data: data!){
-                DispatchQueue.main.async{
-                    self.newsImage.image = image
+        let imageUrl = article.imageURL
+        
+        if let url = imageUrl {
+            let session = URLSession.shared
+            let task = session.dataTask(with: url) { data, response, error in
+                
+                if let image = UIImage(data: data!){
+                    DispatchQueue.main.async{
+                        self.newsImage.image = image
+                    }
                 }
             }
+            task.resume()
         }
-        task.resume()
+        
     }
 
 }
