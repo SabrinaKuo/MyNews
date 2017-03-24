@@ -79,10 +79,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="652"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbS-Ef-Y2a" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="351"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="416"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="TSS-vk-x1H">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="351"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TSS-vk-x1H">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="416"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MI7-qT-fcZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
@@ -91,27 +91,40 @@
                                                         </constraints>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ok1-Bc-Md0">
-                                                        <rect key="frame" x="0.0" y="223" width="375" height="128"/>
+                                                        <rect key="frame" x="0.0" y="231" width="375" height="185"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gOt-Fn-O3o">
-                                                                <rect key="frame" x="15" y="0.0" width="345" height="128"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gOt-Fn-O3o">
+                                                                <rect key="frame" x="15" y="0.0" width="345" height="185"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新聞標題" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5Q-UM-WBh">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="75.5"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="114"/>
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新聞日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nM9-y7-dZz">
-                                                                        <rect key="frame" x="0.0" y="83.5" width="345" height="17"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nM9-y7-dZz">
+                                                                        <rect key="frame" x="0.0" y="134" width="345" height="14"/>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="新聞日期">
+                                                                                <attributes>
+                                                                                    <color key="NSColor" red="0.55881638601036276" green="0.55881638601036276" blue="0.55881638601036276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    <font key="NSFont" size="14" name=".PingFangTC-Regular"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新聞內容" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alq-hW-51j">
-                                                                        <rect key="frame" x="0.0" y="108.5" width="345" height="19.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                        <nil key="textColor"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alq-hW-51j">
+                                                                        <rect key="frame" x="0.0" y="168" width="345" height="17"/>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="新聞內容">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="17" name=".PingFangTC-Regular"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -158,7 +171,13 @@
                             <constraint firstItem="GYT-nE-B5U" firstAttribute="leading" secondItem="30b-Wu-J1C" secondAttribute="leading" id="eTb-cQ-Xdf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="新聞內文" id="9Qk-lV-Mic"/>
+                    <navigationItem key="navigationItem" title="新聞內文" id="9Qk-lV-Mic">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="BSe-HL-8fx">
+                            <connections>
+                                <action selector="shareTapped:" destination="6bF-hR-toa" id="CCu-UX-Cpq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="contentLabel" destination="alq-hW-51j" id="8wY-01-brJ"/>
                         <outlet property="headingLabel" destination="P5Q-UM-WBh" id="YPV-l7-g0v"/>
