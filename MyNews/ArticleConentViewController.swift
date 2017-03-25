@@ -14,6 +14,7 @@ class ArticleConentViewController: UIViewController {
     var article: Article!
     let dateFormatter = DateFormatter()
     
+    @IBOutlet weak var contentTitle: UINavigationItem!
     @IBOutlet weak var newsImage: UIImageView!
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var publishDateLabel: UILabel!
@@ -37,6 +38,7 @@ class ArticleConentViewController: UIViewController {
             contentLabel.attributedText = nil
         }
         
+        contentTitle.title = article.heading
         
         downloadImage()
     }
