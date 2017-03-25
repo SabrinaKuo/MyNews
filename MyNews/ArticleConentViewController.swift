@@ -26,12 +26,16 @@ class ArticleConentViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         publishDateLabel.text = dateFormatter.string(from: article.publishedDate)
         
-        let newsContent = NSMutableAttributedString(string:article.content!)
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 5
-        style.paragraphSpacing = 15;
-        newsContent.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, newsContent.length))
-        contentLabel.attributedText = newsContent
+        if let content = article.content {
+            let newsContent = NSMutableAttributedString(string:content)
+            let style = NSMutableParagraphStyle()
+            style.lineSpacing = 5
+            style.paragraphSpacing = 15;
+            newsContent.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, newsContent.length))
+            contentLabel.attributedText = newsContent
+        } else {
+            contentLabel.attributedText = nil
+        }
         
         
         downloadImage()
@@ -41,36 +45,57 @@ class ArticleConentViewController: UIViewController {
         createAlertSheet()
     }
     
-    func showActionSheet() {
-        
-    }
-    
     func createAlertSheet(){
-        let alertController = UIAlertController()
-        let shareLineButton = UIAlertAction(title: "Share on Line", style: .default) { (action) in
-            print("Share Line button tapped")
-            
-        }
         
-        let shareFBButton = UIAlertAction(title: "Share on Facebook", style: .default) { (action) in
-            print("Share FB button tapped")
-            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
-                let fbComposeVC = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-                //fbComposeVC?.setInitialText(String(url: article.url))
+        let actionSheet = UIAlertController()
+
+        if let articleUrl = self.article.url {
+            // share Line
+            let shareLineAction = UIAlertAction(title: "Share on Line", style: .default) { (action) in
+                print("Share Line button tapped")
+                
+                if let appUrl = URL(string: "line://msg/text/" + "\(articleUrl)") {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(appUrl, options: [:], completionHandler: nil)
+                    }
+                } else {
+                    let itunesURL = URL(string: "itms-apps://itunes.apple.com/app/id443904275")!
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(itunesURL, options: [:], completionHandler: nil)
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                }
+                
             }
-        }
-        
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-            print("cancel button tapped")
-        }
-        
-        alertController.addAction(shareLineButton)
-        alertController.addAction(shareFBButton)
-        alertController.addAction(cancelButton)
-        
-        self.navigationController?.present(alertController, animated: true) { 
+            // share Facebook
+            let shareFBAction = UIAlertAction(title: "Share on Facebook", style: .default) { (action) in
+                
+                print("Share FB button tapped")
+                if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
+                    let fbComposeVC = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                    fbComposeVC?.setInitialText("\(articleUrl)")
+                    self.navigationController?.present(fbComposeVC!, animated: true, completion: nil)
+                } else {
+                    print("Please Login Facebook")
+                }
+                
+            }
+            // cancel
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                print("cancel button tapped")
+            }
             
+            actionSheet.addAction(shareLineAction)
+            actionSheet.addAction(shareFBAction)
+            actionSheet.addAction(cancelAction)
+            
+            self.navigationController?.present(actionSheet, animated: true) {
+                
+            }
+
         }
+        
     }
     
     func downloadImage(){
