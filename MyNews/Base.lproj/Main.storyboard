@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -79,22 +78,22 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYT-nE-B5U">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="652"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbS-Ef-Y2a" userLabel="Content View">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zbS-Ef-Y2a" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="416"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TSS-vk-x1H">
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TSS-vk-x1H">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="416"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MI7-qT-fcZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="MI7-qT-fcZ" secondAttribute="height" multiplier="16:9" id="MTd-As-2HB"/>
+                                                            <constraint firstAttribute="height" constant="211" id="WXM-aP-y5K"/>
                                                         </constraints>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ok1-Bc-Md0">
                                                         <rect key="frame" x="0.0" y="231" width="375" height="185"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gOt-Fn-O3o">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gOt-Fn-O3o">
                                                                 <rect key="frame" x="15" y="0.0" width="345" height="185"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新聞標題" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5Q-UM-WBh">
@@ -166,6 +165,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="GYT-nE-B5U" secondAttribute="trailing" id="93x-b9-y3k"/>
+                            <constraint firstItem="MI7-qT-fcZ" firstAttribute="width" secondItem="30b-Wu-J1C" secondAttribute="width" id="XcC-rf-zNB"/>
                             <constraint firstItem="GYT-nE-B5U" firstAttribute="top" secondItem="xRe-Hx-LhB" secondAttribute="bottom" constant="-64" id="YqG-D8-DkF"/>
                             <constraint firstItem="zbS-Ef-Y2a" firstAttribute="width" secondItem="30b-Wu-J1C" secondAttribute="width" id="acp-o0-l4X"/>
                             <constraint firstItem="Dca-OJ-h6F" firstAttribute="top" secondItem="GYT-nE-B5U" secondAttribute="bottom" constant="15" id="d4J-CD-xez"/>
