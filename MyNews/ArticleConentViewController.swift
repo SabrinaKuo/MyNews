@@ -48,12 +48,11 @@ class ArticleConentViewController: UIViewController {
     }
     
     func createAlertSheet(){
-        
         let actionSheet = UIAlertController()
 
         if let articleUrl = self.article.url {
             // share Line
-            let shareLineAction = UIAlertAction(title: "Share on Line", style: .default) { (action) in
+            let shareLineAction = UIAlertAction(title: "Share on Line", style: .default) { action in
                 print("Share Line button tapped")
                 
                 if let appUrl = URL(string: "line://msg/text/" + "\(articleUrl)") {
@@ -71,7 +70,7 @@ class ArticleConentViewController: UIViewController {
                 
             }
             // share Facebook
-            let shareFBAction = UIAlertAction(title: "Share on Facebook", style: .default) { (action) in
+            let shareFBAction = UIAlertAction(title: "Share on Facebook", style: .default) { action in
                 
                 print("Share FB button tapped")
                 if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
@@ -83,13 +82,28 @@ class ArticleConentViewController: UIViewController {
                 }
                 
             }
+            // open with Safari
+            let safariAction = UIAlertAction(title: "Open with Safari", style: .default) { action in
+                let url = self.article.url!
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
+            // copy action
+            let copyAction = UIAlertAction(title: "Copy Link", style: .default) { action in
+                UIPasteboard.general.url = self.article.url
+            }
             // cancel
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
                 print("cancel button tapped")
             }
             
             actionSheet.addAction(shareLineAction)
             actionSheet.addAction(shareFBAction)
+            actionSheet.addAction(safariAction)
+            actionSheet.addAction(copyAction)
             actionSheet.addAction(cancelAction)
             
             self.navigationController?.present(actionSheet, animated: true) {
