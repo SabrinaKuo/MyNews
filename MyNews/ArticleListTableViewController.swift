@@ -75,6 +75,36 @@ class ArticleListTableViewController: UITableViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         cell.detailTextLabel?.text = dateFormatter.string(from: publishedDate!)
         
+        if let url = article.imageURL {
+            
+            let session = URLSession.shared
+            let task = session.dataTask(with: url) { data, response, error in
+                
+                if let error = error {
+                    debugPrint(error)
+                    return
+                }
+                
+                let image = UIImage(data: data!)
+                DispatchQueue.main.async {
+                    cell.imageView?.image = image
+                    cell.imageView?.contentMode = .scaleAspectFit
+                    
+                    let itemSize = CGSize(width: 64, height: 36)
+                    UIGraphicsBeginImageContextWithOptions(itemSize, false, 0.0)
+                    let imageRect = CGRect(x: 0, y: 0, width: itemSize.width, height: itemSize.height)
+                    image?.draw(in: imageRect)
+                    cell.imageView?.image = UIGraphicsGetImageFromCurrentImageContext()
+                    UIGraphicsEndImageContext()
+                    
+//                    let sw=50/(cell.imageView?.image?.size.width)!
+//                    let sh=50/(cell.imageView?.image?.size.height)!
+//                    cell.imageView?.transform=CGAffineTransform(scaleX: sw,y: sh)
+                }
+            }
+            task.resume()
+        }
+        
         return cell
     }
 

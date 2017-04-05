@@ -19,6 +19,7 @@ class ArticleConentViewController: UIViewController {
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var publishDateLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ class ArticleConentViewController: UIViewController {
         contentTitle.title = article.heading
         
         downloadImage()
+        
     }
     
     @IBAction func shareTapped(_ sender: Any) {
@@ -120,7 +122,6 @@ class ArticleConentViewController: UIViewController {
         self.newsImage.autoresizingMask = .flexibleHeight
         self.newsImage.contentMode = .scaleAspectFill
         
-        
         if let url = imageUrl {
             let session = URLSession.shared
             let task = session.dataTask(with: url) { data, response, error in
@@ -128,6 +129,7 @@ class ArticleConentViewController: UIViewController {
                     
                     DispatchQueue.main.async{
                         self.newsImage.image = image
+                        
                     }
                 }
             }

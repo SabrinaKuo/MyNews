@@ -84,7 +84,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TSS-vk-x1H">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="416"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MI7-qT-fcZ">
+                                                    <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MI7-qT-fcZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="211" id="WXM-aP-y5K"/>
@@ -186,6 +186,7 @@
                         <outlet property="headingLabel" destination="P5Q-UM-WBh" id="YPV-l7-g0v"/>
                         <outlet property="newsImage" destination="MI7-qT-fcZ" id="jHS-nu-n71"/>
                         <outlet property="publishDateLabel" destination="nM9-y7-dZz" id="Ntk-4x-YkY"/>
+                        <outlet property="scrollView" destination="GYT-nE-B5U" id="OEd-Q8-RFX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMf-Xe-43v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -197,7 +198,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OAQ-Ia-9Q6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="0p8-zf-ES9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0p8-zf-ES9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
