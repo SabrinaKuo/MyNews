@@ -65,15 +65,14 @@ class ArticleListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as! ArticleTableViewCell
         let article = self.Articles[indexPath.row]
         
-        cell.textLabel?.text = article.heading
-        cell.accessoryType = .disclosureIndicator
+        cell.titleLabel.text = article.heading
         
         let publishedDate = article.publishedDate
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        cell.detailTextLabel?.text = dateFormatter.string(from: publishedDate!)
+        cell.timeLabel?.text = dateFormatter.string(from: publishedDate!)
         
         if let url = article.imageURL {
             
@@ -87,19 +86,7 @@ class ArticleListTableViewController: UITableViewController {
                 
                 let image = UIImage(data: data!)
                 DispatchQueue.main.async {
-                    cell.imageView?.image = image
-                    cell.imageView?.contentMode = .scaleAspectFit
-                    
-                    let itemSize = CGSize(width: 64, height: 36)
-                    UIGraphicsBeginImageContextWithOptions(itemSize, false, 0.0)
-                    let imageRect = CGRect(x: 0, y: 0, width: itemSize.width, height: itemSize.height)
-                    image?.draw(in: imageRect)
-                    cell.imageView?.image = UIGraphicsGetImageFromCurrentImageContext()
-                    UIGraphicsEndImageContext()
-                    
-//                    let sw=50/(cell.imageView?.image?.size.width)!
-//                    let sh=50/(cell.imageView?.image?.size.height)!
-//                    cell.imageView?.transform=CGAffineTransform(scaleX: sw,y: sh)
+                    cell.newsImageView.image = image
                 }
             }
             task.resume()
@@ -107,7 +94,11 @@ class ArticleListTableViewController: UITableViewController {
         
         return cell
     }
+}
 
-    
+class ArticleTableViewCell: UITableViewCell {
+    @IBOutlet weak var newsImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
 }
